@@ -15,9 +15,9 @@
       <ActivityIndicator x:Name="Indicator1" IsVisible="False" IsRunning="False" Color="#3A8EBA"/>
       <Image x:Name="Image1" HeightRequest="400"/>
     
-    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="Center">
       <Button x:Name="TakePictureButton" Clicked="TakePictureButton_Clicked"
-         Text="Take picture"/>
+         Text="Take another picture"/>
     </StackLayout>
   </StackLayout>
 </Grid>

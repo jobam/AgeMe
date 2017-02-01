@@ -5,6 +5,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -47,15 +48,22 @@ namespace AgeMe
 
             Image1.Source = ImageSource.FromStream(() => file.GetStream());
 
-            var theData = await faceRecognition.UploadAndDetectFaces(file);
+            try
+            {
+                var facesData = await faceRecognition.UploadAndDetectFaces(file);
+
+                var bitmapSource = DependencyService.Get<IDrawFaces>().DrawFaces(file, facesData);
+
+                Image1.Source = ImageSource.FromStream(() => bitmapSource);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                await DisplayAlert("Error", "Wow, check your connection or try plastic surgery", "Ok");
+            }
 
             this.Indicator1.IsRunning = false;
             this.Indicator1.IsVisible = false;
-
-           var bitmapSource =  DependencyService.Get<IDrawFaces>().DrawFaces(file,theData);
-
-            Image1.Source = ImageSource.FromStream(() => bitmapSource);
-
         }
     }
 }

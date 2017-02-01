@@ -22,7 +22,9 @@ namespace AgeMe
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            MainPage mainPage = MainPage as MainPage;
+
+            mainPage.TakePicture();
         }
 
         protected override void OnSleep()
