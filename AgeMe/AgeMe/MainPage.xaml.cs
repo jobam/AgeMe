@@ -25,7 +25,12 @@ namespace AgeMe
             this.faceRecognition = new FaceRecognition("<API KEY>");
         }
 
-        private async void TakePictureButton_Clicked(object sender, EventArgs e)
+        private void TakePictureButton_Clicked(object sender, EventArgs e)
+        {
+            TakePicture();
+        }
+
+        public async void TakePicture()
         {
             await CrossMedia.Current.Initialize();
 

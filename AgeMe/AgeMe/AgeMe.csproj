@@ -86,7 +86,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\FaceRecognitionLibrary\FaceRecognitionLibrary.csproj">
       <Project>{DAC6CC87-D6CB-43F4-90C7-9660671128DF}</Project>
